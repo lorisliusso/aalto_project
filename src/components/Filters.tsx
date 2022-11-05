@@ -6,7 +6,7 @@ import ToggleCheck from '../assets/ToggleCheck';
 import uuid from 'react-uuid';
 
 
-const Filters = () => {
+const Filters = (): JSX.Element => {
 
     const { todos, dispatch } = useContext(Context);
 

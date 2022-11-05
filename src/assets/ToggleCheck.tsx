@@ -2,7 +2,7 @@ import Context from '../context/Context';
 import { useContext } from 'react';
 
 
-const ToggleCheck = () => {
+const ToggleCheck = (): JSX.Element => {
 
     const { todos, dispatch, filters } = useContext(Context);
 
@@ -12,7 +12,7 @@ const ToggleCheck = () => {
         let filteredTodos = [...todos];
 
         if (!filters.checked) {
-            filteredTodos = filteredTodos.filter(todo =>
+            filteredTodos = filteredTodos.filter((todo: any) =>
                 todo.completed)
         }
 
@@ -20,12 +20,12 @@ const ToggleCheck = () => {
 
 
         if (filters.text) {
-            filteredTodos = filteredTodos.filter(todo =>
+            filteredTodos = filteredTodos.filter((todo: any) =>
                 todo.title.toLowerCase().includes(filters['text'].toLowerCase()))
         }
 
         if (filters.selected.length > 0) {
-            filteredTodos = filteredTodos.filter(todo =>
+            filteredTodos = filteredTodos.filter((todo: any) =>
                 filters.selected.includes(todo.id))
         }
 

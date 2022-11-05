@@ -7,7 +7,7 @@ import uuid from 'react-uuid';
 import X from "../icons/x-close-mobile.svg"
 
 
-const FiltersMobile = () => {
+const FiltersMobile = (): JSX.Element => {
 
     const { todos, dispatch } = useContext(Context);
 

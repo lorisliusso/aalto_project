@@ -2,8 +2,8 @@ import Header from '../components/Header';
 import Main from '../components/Main';
 import Footer from '../components/Footer';
 import { useContext, useEffect } from "react";
-import Context from "../context/Context.jsx";
-import { searchTodos } from "../context/Actions.jsx";
+import Context from "../context/Context";
+import { searchTodos } from "../context/Actions";
 
 const Home = (): JSX.Element => {
 

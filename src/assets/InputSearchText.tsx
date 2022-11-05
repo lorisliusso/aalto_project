@@ -1,31 +1,36 @@
 import magnifyingGlass from '../icons/magnifying-glass.png'
 import Context from '../context/Context';
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 
 
-const InputSearchText = () => {
+const InputSearchText = (): JSX.Element => {
 
     const { todos, dispatch, filters } = useContext(Context);
+    const [inputValue, setInputValue] = useState('')
 
 
-    function handleKeyDown(e) {
+    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInputValue(e.target.value);
+    };
+
+    function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
 
         if (e.key === 'Enter') {
 
-            const searchKeyword = e.target.value;
+            const searchKeyword = inputValue;
 
             dispatch({ type: 'SAVE-INPUT-TEXT', payload: searchKeyword })
 
-            let filteredTodos = todos.filter(todo =>
+            let filteredTodos = todos.filter((todo: any) =>
                 todo.title.toLowerCase().includes(searchKeyword.toLowerCase()))
 
             if (filters.checked) {
-                filteredTodos = filteredTodos.filter(todo =>
+                filteredTodos = filteredTodos.filter((todo: any) =>
                     todo.completed)
             }
 
             if (filters.selected.length > 0) {
-                filteredTodos = filteredTodos.filter(todo =>
+                filteredTodos = filteredTodos.filter((todo: any) =>
                     filters.selected.includes(todo.id))
             }
 
@@ -43,7 +48,7 @@ const InputSearchText = () => {
                 <img className='h-6' src={magnifyingGlass} alt="magnifying-glass" />
             </figure>
 
-            <input onKeyDown={handleKeyDown} className="pl-3 italic flex-1" type="text" id='search' placeholder="Search..." />
+            <input onKeyDown={handleKeyDown} onChange={handleInput} className="pl-3 italic flex-1" type="text" id='search' placeholder="Search..." />
 
         </label>
 

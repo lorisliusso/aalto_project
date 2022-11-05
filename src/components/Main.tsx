@@ -1,7 +1,7 @@
 import Filters from "./Filters";
 import Results from "./Results";
 
-const Main = () => {
+const Main = (): JSX.Element => {
 
     return (
 

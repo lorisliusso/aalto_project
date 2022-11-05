@@ -4,7 +4,7 @@ import FiltersMobile from './FiltersMobile'
 import { useContext } from 'react'
 import Context from '../context/Context'
 
-const Header = () => {
+const Header = (): JSX.Element => {
 
     const { dispatch, set_mobile_navbar } = useContext(Context);
 

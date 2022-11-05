@@ -1,4 +1,7 @@
-const Reducer = (state, action) => {
+import { TodosStateType, TodosActionType } from './Context';
+
+
+const Reducer = (state: TodosStateType, action: TodosActionType): TodosStateType => {
 
     switch (action.type) {
 

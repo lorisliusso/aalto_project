@@ -1,35 +1,36 @@
 import { useContext, useEffect, useState } from 'react';
-import makeAnimated from 'react-select/animated';
 import Context from '../context/Context';
 import Select, { components } from "react-select";
 import { IoIosArrowDropdown } from 'react-icons/io';
+import { TodosType } from '../context/Context';
 
+type Options = {
+    value?: number
+    label?: number
+}
 
+const MultiDropDownSelection = (): JSX.Element => {
 
-const animatedComponents = makeAnimated();
-
-const MultiDropDownSelection = () => {
-
-    const [options, setOptions] = useState([]);
+    const [options, setOptions] = useState<Options[]>([]);
 
     const { todos, dispatch, dropdown_list_options, filters } = useContext(Context)
 
-    function handleChange(selectedIds) {
+    function handleChange(selectedIds: any) {
 
         if (selectedIds.length === 0) {
 
             dispatch({ type: 'SAVE-SELECTED-OPTIONS', payload: [] })
 
-            let filteredTodos = [];
+            let filteredTodos: TodosType[] = [];
 
             if (filters.text) {
 
-                filteredTodos = todos.filter(todo =>
+                filteredTodos = todos.filter((todo: any) =>
                     todo.title.toLowerCase().includes(filters['text'].toLowerCase()))
             }
 
             if (filters.checked) {
-                filteredTodos = filteredTodos.filter(todo =>
+                filteredTodos = filteredTodos.filter((todo: any) =>
                     todo.completed)
             }
 
@@ -37,7 +38,9 @@ const MultiDropDownSelection = () => {
             return
         }
 
-        const selectedArray = [];
+        //ELSE://
+
+        const selectedArray: number[] = [];
 
         for (const opt of selectedIds) {
             selectedArray.push(opt.value)
@@ -45,17 +48,17 @@ const MultiDropDownSelection = () => {
 
         dispatch({ type: 'SAVE-SELECTED-OPTIONS', payload: selectedArray })
 
-        const filteredTodos = todos.filter(todo =>
+        const filteredTodos = todos.filter((todo: any) =>
             selectedArray.includes(todo.id))
 
-        const filteredDropDownList = dropdown_list_options.filter(todo =>
+        const filteredDropDownList = dropdown_list_options.filter((todo: any) =>
             selectedArray.includes(todo.id) === false)
 
         dispatch({ type: 'FILTERED_TODOS-KEEPLIST', payload: { todos_data: filteredTodos, dropdown_list: filteredDropDownList } })
     }
 
 
-    function convertToOptions(array) {
+    function convertToOptions(array: TodosType[]): Options[] {
         const options = [];
 
         for (const obj of array) {
@@ -75,7 +78,7 @@ const MultiDropDownSelection = () => {
 
     //////////////////////STYLES
 
-    const DropdownIndicator = props => {
+    const DropdownIndicator = (props: any) => {
         return (
             <components.DropdownIndicator {...props}>
                 <IoIosArrowDropdown className='text-MainBlue h-6 w-6' />
@@ -83,8 +86,10 @@ const MultiDropDownSelection = () => {
         );
     };
 
+
+
     const customStyles = {
-        control: (base, state) => ({
+        control: (base: any, state: any) => ({
             ...base,
             border: "1px solid #003479",
             borderRadius: "0px"
@@ -92,7 +97,6 @@ const MultiDropDownSelection = () => {
             // You can also use state.isFocused to conditionally style based on the focus state
         })
     }
-
 
 
     /////////////////////////////////////
@@ -105,7 +109,7 @@ const MultiDropDownSelection = () => {
             <Select
                 styles={customStyles}
                 closeMenuOnSelect={false}
-                components={{ animatedComponents, DropdownIndicator, IndicatorSeparator: () => null }}
+                components={{ DropdownIndicator, IndicatorSeparator: () => null }}
                 isMulti
                 options={options}
                 onChange={handleChange}

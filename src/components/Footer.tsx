@@ -1,5 +1,5 @@
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
 
     return (
 

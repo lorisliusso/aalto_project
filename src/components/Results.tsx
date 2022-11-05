@@ -1,6 +1,6 @@
-import Pagination from "./Pagination.jsx";
+import Pagination from "./Pagination";
 
-const Results = () => {
+const Results = (): JSX.Element => {
 
     return (
 

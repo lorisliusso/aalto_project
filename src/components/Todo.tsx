@@ -1,7 +1,13 @@
 import X from '../icons/x.svg'
 import Check from '../icons/check.svg'
 
-const Todo = ({ userId, title, completed }) => {
+type TodoProps = {
+    userId: number;
+    title: number;
+    completed: boolean;
+}
+
+const Todo = ({ userId, title, completed }: TodoProps): JSX.Element => {
 
     return (
 
