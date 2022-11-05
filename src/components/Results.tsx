@@ -4,7 +4,7 @@ const Results = (): JSX.Element => {
 
     return (
 
-        <section className="relative self-center w-full h-fit py-5 xl:h-157.5 xl:w-207.5 bg-MainGray xl:ml-15 px-9">
+        <section className="relative self-center w-full h-fit py-5 xl:h-157.5 xl:w-207.5 bg-MainGray xl:ml-15 px-9 xl:self-start">
 
             <ul className="flex mt-3 w-full justify-between px-2">
 
