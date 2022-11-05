@@ -24,8 +24,8 @@ const Header = (): JSX.Element => {
 
             {/*MOBILE FILTERS*/}
 
-            < section className={set_mobile_navbar === false ? "absolute z-0 opacity-0"
-                : "opacity-100 absolute z-50 bg-white w-full h-full inset-y-0 right-0 transition-opacity  duration-300 ease-in-out"}
+            < section className={set_mobile_navbar === false ? "invisible opacity-0"
+                : "opacity-100 absolute z-50 bg-white w-full h-full inset-y-0 right-0 transition-opacity duration-300 ease-in-out"}
                 id='navbar-mobile' >
 
                 <FiltersMobile />
