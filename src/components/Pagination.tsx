@@ -9,7 +9,7 @@ import { TodosType } from '../context/Context';
 
 const Pagination = (): JSX.Element => {
 
-    const { filtered_todos, reset } = useContext(Context)
+    const { filtered_todos, reset } = useContext(Context);
 
     const itemsPerPage = 5;
 
@@ -20,7 +20,7 @@ const Pagination = (): JSX.Element => {
 
     const handlePageClick = (event: { selected: number }) => {
 
-        setCurrentPage(event.selected)
+        setCurrentPage(event.selected);
         const newOffset = (event.selected * itemsPerPage) % filtered_todos.length;
         setItemOffset(newOffset);
     };
@@ -40,7 +40,7 @@ const Pagination = (): JSX.Element => {
 
         setItemOffset(0);
 
-        setCurrentPage(0)
+        setCurrentPage(0);
 
         const endOffset = 0 + itemsPerPage;
 
