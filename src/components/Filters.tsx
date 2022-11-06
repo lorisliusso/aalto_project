@@ -1,5 +1,5 @@
 import Context from '../context/Context';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import MultiDropDownSelection from '../assets/MultiDropDownSelection';
 import InputSearchText from '../assets/InputSearchText';
 import ToggleCheck from '../assets/ToggleCheck';
@@ -9,8 +9,6 @@ import uuid from 'react-uuid';
 const Filters = (): JSX.Element => {
 
     const { todos, dispatch, reset } = useContext(Context);
-
-    const [resetForm, setResetForm] = useState('')
 
     function activateReset() {
         dispatch({ type: 'RESET-FILTERS', payload: { todos, reset: uuid() } })
