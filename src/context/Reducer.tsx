@@ -49,8 +49,9 @@ const Reducer = (state: TodosStateType, action: TodosActionType): TodosStateType
             return {
                 ...state,
                 filters: { text: '', checked: false, selected: [] },
-                filtered_todos: action.payload,
-                dropdown_list_options: action.payload
+                filtered_todos: action.payload.todos,
+                dropdown_list_options: action.payload.todos,
+                reset: action.payload.reset,
             }
 
         case 'SET-MOBILE-NAVBAR':
@@ -58,6 +59,7 @@ const Reducer = (state: TodosStateType, action: TodosActionType): TodosStateType
                 ...state,
                 set_mobile_navbar: action.payload
             }
+
 
         default:
             return state

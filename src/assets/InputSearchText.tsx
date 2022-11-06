@@ -36,6 +36,7 @@ const InputSearchText = (): JSX.Element => {
 
             dispatch({ type: 'FILTERED_TODOS', payload: filteredTodos })
 
+
         }
     }
 

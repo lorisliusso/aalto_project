@@ -8,18 +8,18 @@ import uuid from 'react-uuid';
 
 const Filters = (): JSX.Element => {
 
-    const { todos, dispatch } = useContext(Context);
+    const { todos, dispatch, reset } = useContext(Context);
 
     const [resetForm, setResetForm] = useState('')
 
-    function reset() {
-        dispatch({ type: 'RESET-FILTERS', payload: todos })
-        setResetForm(uuid())
+    function activateReset() {
+        dispatch({ type: 'RESET-FILTERS', payload: { todos, reset: uuid() } })
+
     }
 
     return (
 
-        <aside key={resetForm} className="hidden xl:flex flex-col bg-MainGray h-130 w-82.5 px-8">
+        <aside key={reset} className="hidden xl:flex flex-col bg-MainGray h-130 w-82.5 px-8">
 
             <h2 className="mx-auto mt-4 text-3xl text-MainBlue font-bold">FILTERS</h2>
 
@@ -29,7 +29,7 @@ const Filters = (): JSX.Element => {
 
             <MultiDropDownSelection />
 
-            <button onClick={reset} className='mt-16 underline text-MainBlue underline-increase-distance p-2'>Reset filters</button>
+            <button onClick={activateReset} className='mt-16 underline text-MainBlue underline-increase-distance p-2'>Reset filters</button>
 
         </aside >
 

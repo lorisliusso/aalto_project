@@ -28,6 +28,7 @@ export type TodosStateType = {
     filtered_todos: TodosType[],
     dropdown_list_options: TodosType[],
     set_mobile_navbar: boolean,
+    reset: string,
 
     filters: FiltersType,
 
@@ -44,6 +45,7 @@ const initialState: TodosStateType = {
     filtered_todos: [],
     dropdown_list_options: [],
     set_mobile_navbar: false,
+    reset: '',
 
     filters: {
         text: '',
