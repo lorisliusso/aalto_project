@@ -33,7 +33,7 @@ const Pagination = (): JSX.Element => {
 
         setCurrentItems(filtered_todos.slice(itemOffset, endOffset));
 
-    }, [itemOffset]);
+    }, [itemOffset, filtered_todos]);
 
 
     useEffect(() => {
@@ -70,7 +70,6 @@ const Pagination = (): JSX.Element => {
                     marginPagesDisplayed={1}
                     pageRangeDisplayed={4}
                     pageCount={pageCount}
-                    forcePage={currentPage}
                     previousLabel=
                     {<IoIosArrowDropleft
                         className={currentPage === 0 ? 'text-gray-400' : 'text-MainLightBlue'} />}

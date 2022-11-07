@@ -17,11 +17,13 @@ const MultiDropDownSelection = (): JSX.Element => {
 
     function handleChange(selectedIds: any) {
 
+        console.log(selectedIds)
+
         if (selectedIds.length === 0) {
 
             dispatch({ type: 'SAVE-SELECTED-OPTIONS', payload: [] })
 
-            let filteredTodos: TodosType[] = [];
+            let filteredTodos: TodosType[] = todos;
 
             if (filters.text) {
 
@@ -56,6 +58,7 @@ const MultiDropDownSelection = (): JSX.Element => {
 
         dispatch({ type: 'FILTERED_TODOS-KEEPLIST', payload: { todos_data: filteredTodos, dropdown_list: filteredDropDownList } })
     }
+
 
 
     function convertToOptions(array: TodosType[]): Options[] {
