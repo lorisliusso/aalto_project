@@ -16,10 +16,10 @@ const Header = (): JSX.Element => {
 
         <nav className="relative bg-MainPurple h-24 w-full py-5 flex justify-center">
 
-            <figure className='flex justify-start items-end space-x-20 w-full px-10'>
-                <img onClick={activateMobileNavbar} className='xl:hidden h-10 cursor-pointer 
+            <figure className='flex justify-start items-end space-x-20 w-full '>
+                <img onClick={activateMobileNavbar} className='ml-10 xl:hidden h-10 cursor-pointer 
                  hover:scale-110 transition duration-75 ease-in' src={hamburger} alt="hamburger" />
-                <img className='h-14' src={aaltoLogo} alt="aalto-logo" />
+                <img className='h-14 w-28' src={aaltoLogo} alt="aalto-logo" />
             </figure>
 
             {/*MOBILE FILTERS*/}

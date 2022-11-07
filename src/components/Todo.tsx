@@ -14,7 +14,7 @@ const Todo = ({ userId, title, completed }: TodoProps): JSX.Element => {
         <div className="flex bg-white h-17.5 mb-5 items-center justify-between 
         px-10 border-b-2 border-b-MainLightBlue">
 
-            <div className="flex flex-1">
+            <div className="flex flex-1 items-center">
                 <p>{userId}</p>
                 <p className="ml-24 md:ml-28">{title}</p>
             </div>
