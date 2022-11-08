@@ -70,6 +70,7 @@ const Pagination = (): JSX.Element => {
                     marginPagesDisplayed={1}
                     pageRangeDisplayed={4}
                     pageCount={pageCount}
+                    forcePage={currentPage}
                     previousLabel=
                     {<IoIosArrowDropleft
                         className={currentPage === 0 ? 'text-gray-400' : 'text-MainLightBlue'} />}
